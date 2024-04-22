@@ -1,0 +1,195 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+/* 背景 */
+body {
+    /* background: #0A3C5A;
+    background: rgb(10, 60, 90);
+    background: linear-gradient(90deg, rgba(10,60,90,1) 0%, rgb(7, 42, 64,1) 50%); */
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+}
+
+header {
+    background-color: #1D536E;
+    color: #fff;
+    padding: 20px;
+    overflow: hidden;
+}
+
+main {
+    margin: 2% 5% 0 5%;
+}
+
+nav {
+    display: flex; /* ナビゲーションをフレックスボックスとして配置 */
+    align-items: center; /* 垂直方向の中央揃え */
+}
+
+.menu, .logout {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu li, .logout li {
+    display: inline-block; /* メニュー項目をインラインブロックとして配置 */
+    vertical-align: middle; /* 垂直方向の中央揃え */
+}
+
+.menu li:not(:last-child) {
+    margin-right: 20px; /* メニュー項目の間隔を設定 */
+}
+
+.menu li a, .logout li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.menu li a:hover, .logout li a:hover {
+    background-color: #555;
+}
+
+.logout {
+    margin-left: auto; /* ログアウトボタンを右端に配置 */
+}
+
+.logout li {
+    display: inline-block;
+}
+
+.logout li a {
+    background-color: #E45D69;
+}
+
+.playlist_btn_area {
+    margin: 50px 0 50px 0;
+    text-align: center;
+}
+
+/* テーブル */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid white;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.styled-table th {
+    background-color: #C98382;
+    color: white;
+}
+
+.styled-table tr {
+    background-color: #E4A4A3;
+    color: #AE6362;
+}
+
+.txt_center {
+    text-align: center;
+}
+
+/* inputタグ */
+input {
+    width: 100%; /* 幅 */
+    padding: 10px; /* 内側の余白 */
+    border: 1px solid #ccc; /* 枠線 */
+    border-radius: 5px; /* 角丸 */
+    font-size: 16px; /* フォントサイズ */
+    outline: none; /* フォーカス時の枠線を削除 */
+    box-sizing: border-box; /* paddingを含む幅を指定 */
+}
+/* フォーカス時のスタイル */
+input:focus {
+    border-color: #C98382; /* フォーカス時の枠線の色 */
+    box-shadow: 0 0 5px #C98382; /* フォーカス時の影 */
+}
+
+/* ボタンのスタイル */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* 変化を滑らかにするためのトランジション */
+    font-family: 'Montserrat', sans-serif;
+}
+.btn2 {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* 変化を滑らかにするためのトランジション */
+    font-family: 'Montserrat', sans-serif;
+}
+.btn-update {
+    background-color: #AE6362;
+    color: #fff;
+    /* margin-right: 5px; */
+    margin-bottom: 8px;
+}
+.btn-register {
+    background-color: #AE6362;
+    color: #fff;
+}
+.btn-delete {
+    background-color: #323F63;
+    color: #fff;
+}
+.btn-playlist {
+    background-color: #323F63;
+    color: #fff;
+}
+.btn:hover {
+    opacity: 0.8; /* マウスオーバー時の透明度 */
+}
+.btn2:hover {
+    opacity: 0.8; /* マウスオーバー時の透明度 */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

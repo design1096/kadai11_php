@@ -1,0 +1,43 @@
+<?php
+// YouTube URLのチェック
+$url  = $_POST["url"];
+
+function isValidYouTubeUrl($url) {
+    $pattern = '/^(https?:\/\/)(www\.)(youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/';
+    if (!preg_match($pattern, $url)) {
+        echo "<script>alert('YouTube URLが正しくありません。');</script>";
+        echo "<script>window.location = 'select.php';</script>";
+        exit();
+    }
+}
+isValidYouTubeUrl($url);
+
+//1. POSTデータ取得
+$id     = $_POST["id"];
+$title  = $_POST["title"];
+$sort_order  = $_POST["sort_order"];
+$related_work_name  = $_POST["related_work_name"];
+$video_id = substr($url, 32);
+
+//2. DB接続
+include("funcs.php");
+$pdo = db_conn_local();
+
+//３．データ登録SQL作成
+$stmt = $pdo->prepare("UPDATE playlist_user SET title=:title,url=:url,sort_order=:sort_order,related_work_name=:related_work_name,video_id=:video_id WHERE id=:id");
+$stmt->bindValue(':sort_order', $sort_order, PDO::PARAM_INT);
+$stmt->bindValue(':title', $title, PDO::PARAM_STR);
+$stmt->bindValue(':related_work_name', $related_work_name, PDO::PARAM_STR);
+$stmt->bindValue(':url', $url, PDO::PARAM_STR);
+$stmt->bindValue(':video_id', $video_id, PDO::PARAM_STR);
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$status = $stmt->execute(); //実行
+
+//４．データ登録処理後
+if ($status==false) {
+    sql_error($stmt);
+} else {
+    echo "<script>alert('更新が完了しました。');</script>";
+    echo "<script>window.location = 'select.php';</script>";
+    exit();
+}
